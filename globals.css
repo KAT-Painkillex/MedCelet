@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  --color-emergency: #dc2626;
+  --color-emergency-dark: #991b1b;
+  --color-trust: #0f766e;
+  --color-surface: #f8fafc;
+  --color-foreground: #0f172a;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-foreground);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.emergency-header {
+  background: linear-gradient(
+    135deg,
+    var(--color-emergency) 0%,
+    var(--color-emergency-dark) 100%
+  );
+  padding: 1.25rem 1rem 1.5rem;
+  box-shadow: 0 4px 20px rgb(220 38 38 / 25%);
+}
+
+.emergency-pulse {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 20%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 40%);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 0%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.35s ease-out;
+}
